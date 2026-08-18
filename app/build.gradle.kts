@@ -85,7 +85,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     // AdMob
-    implementation(libs.play.services.ads)
+    //implementation(libs.play.services.ads)
 
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
