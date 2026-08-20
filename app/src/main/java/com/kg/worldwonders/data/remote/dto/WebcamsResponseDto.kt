@@ -1,4 +1,4 @@
-package com.kg.worldwonders.data.dto
+package com.kg.worldwonders.data.remote.dto
 
 import kotlinx.serialization.Serializable
 

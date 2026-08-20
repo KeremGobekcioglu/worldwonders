@@ -1,4 +1,4 @@
-package com.kg.worldwonders.data
+package com.kg.worldwonders.data.remote
 
 import com.kg.worldwonders.common.constants.ApiConstants
 import okhttp3.Interceptor

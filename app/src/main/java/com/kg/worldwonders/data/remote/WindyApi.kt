@@ -1,4 +1,4 @@
-package com.kg.worldwonders.data
+package com.kg.worldwonders.data.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Path

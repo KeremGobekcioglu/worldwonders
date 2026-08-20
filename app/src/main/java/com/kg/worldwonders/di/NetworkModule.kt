@@ -2,8 +2,8 @@ package com.kg.worldwonders.di
 
 import com.kg.worldwonders.BuildConfig
 import com.kg.worldwonders.common.constants.ApiConstants
-import com.kg.worldwonders.data.WindyApi
-import com.kg.worldwonders.data.WindyApiKeyInterceptor
+import com.kg.worldwonders.data.remote.WindyApi
+import com.kg.worldwonders.data.remote.WindyApiKeyInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
