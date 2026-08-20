@@ -12,6 +12,11 @@ interface WindyApi
      */
     @GET("/webcams/api/v3/webcams")
     suspend fun getWebcams(
+        /**
+         * Specify the desired language for translating the results, if supported.
+         * Available values : ar, bg, bn, ca, cs, da, de, el, en, es, et, fa, fi, fr, he, hi, hr, hu, id, is, it,
+         * ja, ko, lt, nb, nl, pl, pt, ro, ru, sk, sl, sq, sr, sv, ta, th, tr, uk, vi, zh, zh-TW
+         */
         @Query("lang") lang: String = "en",
         /**
          * default value 10. range 0 to 50.
@@ -83,13 +88,24 @@ interface WindyApi
          * Maximum number of webcams: 50
          */
         @Query("webcamIds") webcamIds: String? = null,
+        /**
+         * Specify the content to be displayed in the result by defining the desired parts of the webcam feed.
+         * Available values : categories, images, location, player, urls
+         */
         @Query("include") include: String? = "images,location,categories,player,urls"
     ) : String
 
     @GET("/webcams/api/v3/webcams/{webcamId}")
     suspend fun getWebcam(
         @Path("webcamId") webcamId : Long,
+        /**
+         * turkcede var. lokalizasyon yaparken kullanacağım.
+         */
         @Query("lang") lang: String = "en",
+        /**
+         * Specify the content to be displayed in the result by defining the desired parts of the webcam feed.
+         * Available values : categories, images, location, player, urls
+         */
         @Query("include") include: String? = "images,location,categories,player,urls"
     ) : String
 
