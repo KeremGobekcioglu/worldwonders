@@ -12,6 +12,15 @@ import kotlinx.serialization.json.decodeFromStream
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Loads [GeoCodeDto] lists (continents, countries) from JSON files bundled
+ * under `assets/geo/`, parsing each file at most once and caching the result
+ * for the lifetime of the singleton.
+ *
+ * Concurrent calls for the same file are serialized via [mutex] so the
+ * underlying JSON is decoded only once even when requested from multiple
+ * coroutines at the same time.
+ */
 @Singleton
 class GeoAssetSource @Inject constructor(
     @ApplicationContext private val context: Context,
