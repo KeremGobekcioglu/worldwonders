@@ -1,5 +1,8 @@
 package com.kg.worldwonders.data.remote
 
+import com.kg.worldwonders.data.remote.dto.CategoryDto
+import com.kg.worldwonders.data.remote.dto.WebcamDto
+import com.kg.worldwonders.data.remote.dto.WebcamsResponseDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -92,8 +95,8 @@ interface WindyApi
          * Specify the content to be displayed in the result by defining the desired parts of the webcam feed.
          * Available values : categories, images, location, player, urls
          */
-        @Query("include") include: String? = "images,location,categories,player,urls"
-    ) : String
+        @Query("include") include: String? = DEFAULT_INCLUDE
+    ) : WebcamsResponseDto
 
     @GET("/webcams/api/v3/webcams/{webcamId}")
     suspend fun getWebcam(
@@ -106,11 +109,16 @@ interface WindyApi
          * Specify the content to be displayed in the result by defining the desired parts of the webcam feed.
          * Available values : categories, images, location, player, urls
          */
-        @Query("include") include: String? = "images,location,categories,player,urls"
-    ) : String
+        @Query("include") include: String? = DEFAULT_INCLUDE
+    ) : WebcamDto
 
     @GET("/webcams/api/v3/categories")
     suspend fun getCategories(
         @Query("lang") lang: String = "en"
-    ) : String
+    ) : List<CategoryDto>
+
+    companion object {
+        const val DEFAULT_INCLUDE = "images,location,categories,player,urls"
+    }
+
 }
